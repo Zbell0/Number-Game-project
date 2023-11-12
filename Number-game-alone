@@ -1,0 +1,29 @@
+let computerNum = 0;//1번-랜덤번호를 지정
+let playButton = document.getElementById("play-button");//2번- go라는 버튼을 가져옴
+let userInput = document.getElementById("user-input")//2번 - 값의 변수지정
+let resultArea = document.getElementById("result-area")//*유저에게 결괏값을 보여주기
+
+playButton.addEventListener("click",play)//-2-이 버튼을 클릭하는 이벤트를 했을 때 play라는 함수를 실행시키자,이때 play라는 함수는 매개변수로 값이 들어감
+
+
+
+function pickRandomNum() { //1번 
+    computerNum = Math.floor(Math.random()*100)+1;
+    console.log("정답",computerNum);
+}
+
+
+
+function play(){ // 2-play버튼을 눌렸을 때 일어나는 일
+    let userValue = userInput.value //2번-play 버튼을 눌렀을 때 값을 들고온다
+    console.log(userValue)
+    if( userValue < computerNum){//3-입력 숫자가 크면 혹은 작으면 혹은 맞추면
+        resultArea.textContent = "UP!"//*유저에게 결괏값을 보여주기
+    }else if( userValue > computerNum){
+        resultArea.textContent = "Down!"
+    }else{
+        resultArea.textContent = "맞추셨습니다"
+    }
+}
+
+pickRandomNum();
